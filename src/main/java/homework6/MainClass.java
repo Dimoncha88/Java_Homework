@@ -55,13 +55,17 @@ public class MainClass {
         System.out.printf("Введите параметр ноутбука (производитель, " +
                 "размер экрана, цвет, оперативная память(в ГБ)): ");
         String parametr = enter.nextLine();
+        boolean found = false;
         for (Notebook element : list1) {
-            if (element.getName().equalsIgnoreCase(parametr) ||
+            found = (element.getName().equalsIgnoreCase(parametr) ||
                     element.getSize().equalsIgnoreCase(parametr) ||
                     element.getColor().equalsIgnoreCase(parametr) ||
-                    element.getRam().equalsIgnoreCase(parametr))
+                    element.getRam().equalsIgnoreCase(parametr));
+            if (found)
                 System.out.println(element.notebookInfo());
         }
+        if (!found)
+            System.out.println("Такого ноутбука нет");
     }
 }
 
