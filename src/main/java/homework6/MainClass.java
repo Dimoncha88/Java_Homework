@@ -57,12 +57,14 @@ public class MainClass {
         String parametr = enter.nextLine();
         boolean found = false;
         for (Notebook element : list1) {
-            found = (element.getName().equalsIgnoreCase(parametr) ||
+            if (element.getName().equalsIgnoreCase(parametr) ||
                     element.getSize().equalsIgnoreCase(parametr) ||
                     element.getColor().equalsIgnoreCase(parametr) ||
-                    element.getRam().equalsIgnoreCase(parametr));
-            if (found)
+                    element.getRam().equalsIgnoreCase(parametr))
+            {
+                found = true;
                 System.out.println(element.notebookInfo());
+            }
         }
         if (!found)
             System.out.println("Такого ноутбука нет");
